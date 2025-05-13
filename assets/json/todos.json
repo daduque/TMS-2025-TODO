@@ -1,0 +1,34 @@
+[
+  {
+      "titulo":  "Primera tarea desde json",
+      "estado": "ToDo",
+      "descripcion": "Agregar una nueva tarea desde un JSON",
+      "responsable": "Daniel Duque",
+      "prioridad ": "Media",
+      "fecha_fin": "2025-05-18"
+  },
+  {
+      "titulo":  "Segunda tarea desde json",
+      "estado": "ToDo",
+      "descripcion": "Agregar una nueva tarea desde un JSON",
+      "responsable": "Daniel Duque",
+      "prioridad ": "Media",
+      "fecha_fin": "2025-05-18"
+  },
+  {
+      "titulo":  "Tercera tarea desde json",
+      "estado": "ToDo",
+      "descripcion": "Agregar una nueva tarea desde un JSON",
+      "responsable": "Daniel Duque",
+      "prioridad ": "Media",
+      "fecha_fin": "2025-05-18"
+  },
+  {
+      "titulo":  "Cuarta tarea desde json",
+      "estado": "ToDo",
+      "descripcion": "Agregar una nueva tarea desde un JSON",
+      "responsable": "Daniel Duque",
+      "prioridad ": "Media",
+      "fecha_fin": "2025-05-18"
+  }
+]
