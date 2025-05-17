@@ -4,7 +4,7 @@
       "estado": "ToDo",
       "descripcion": "Agregar una nueva tarea desde un JSON",
       "responsable": "Daniel Duque",
-      "prioridad ": "Media",
+      "prioridad": "Media",
       "fecha_fin": "2025-05-18"
   },
   {
@@ -12,7 +12,7 @@
       "estado": "ToDo",
       "descripcion": "Agregar una nueva tarea desde un JSON",
       "responsable": "Daniel Duque",
-      "prioridad ": "Media",
+      "prioridad": "Media",
       "fecha_fin": "2025-05-18"
   },
   {
@@ -20,7 +20,7 @@
       "estado": "ToDo",
       "descripcion": "Agregar una nueva tarea desde un JSON",
       "responsable": "Daniel Duque",
-      "prioridad ": "Media",
+      "prioridad": "Alta",
       "fecha_fin": "2025-05-18"
   },
   {
@@ -28,7 +28,7 @@
       "estado": "ToDo",
       "descripcion": "Agregar una nueva tarea desde un JSON",
       "responsable": "Daniel Duque",
-      "prioridad ": "Media",
+      "prioridad": "Media",
       "fecha_fin": "2025-05-18"
   }
 ]

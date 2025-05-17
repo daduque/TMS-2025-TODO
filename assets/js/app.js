@@ -32,39 +32,80 @@ console.log(directorio);
 // selectores DOM querySelector, getElement, Eventos
 // guardar en variables el bloque de HTML de la página
 // nombre etiqueta, nombre del id #, nombre de la clase con .
-let todoContainerTasks = document.querySelector('#todoContainerTasks')
 
+const showAlerts = (error) =>{
+    let alertsDiv = document.querySelector('#alerts');
+    alertsDiv.innerHTML = `
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>Error: </strong> Algo inesperado ocurrió y la petición no se pudo completar.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    `
+}
 
+const saveToStorage = (datos, name) => {
+    //formatear en cadena para almancenar en el storage
+    const stringDatos = JSON.stringify(datos)
 
-//convierte un objeto a un string
+    //Almacenarlo en el storage
+    localStorage.setItem(name, stringDatos)
 
-todos_list  = JSON.parse(localStorage.getItem("todos_list"));
+}
 
-//forEach, iterador que no retorna nada, pero recorre los arrays para poder acceder a cada uno de los elementos y operar.
+const drawData = (name) => {
+    //Recuperar datos del storage y formatearlos en JSON
+    const datos = localStorage.getItem(name)
+    const datosJSON = JSON.parse(datos)
+    console.log("datos desde draw:", datosJSON);
 
-todos_list.forEach( (tarea, index) => {
+    //Capturar el elemento HTML donde se van a pintar las tareas
+    let todoContainerTasks = document.querySelector('#todoContainerTasks')
 
-    todoContainerTasks.innerHTML += `
+    //Crear un ciclo foEach para pintar los datos en el HTML
+    datosJSON.forEach((data, index) => {
+        todoContainerTasks.innerHTML += `
             <div class="card" style="width: 18rem;" id= ${"tarea-" + index}>
                 <div class="card-body">
-                <h5 class="card-title">${ tarea.titulo }</h5>
-                <h6 class="card-subtitle mb-2 text-body-secondary">${ tarea.estado } - ${ tarea.fecha_fin }</h6>
-                <p class="card-text">${ tarea.descripcion }</p>
-                <a href="#" class="card-link">${ tarea.responsable }</a>
-                <a href="#" class="card-link">${ tarea.prioridad }</a>
+                <h5 class="card-title">${ data.titulo }</h5>
+                <h6 class="card-subtitle mb-2 text-body-secondary">${ data.estado } - ${ data.fecha_fin }</h6>
+                <p class="card-text">${ data.descripcion }</p>
+                <a href="#" class="card-link">${ data.responsable }</a>
+                <a href="#" class="card-link">${ data.prioridad }</a>
                 </div>
             </div>
         `
-}   
-)
+    })
+}
 
-primera_tarea = document.querySelector('#tarea-0');
+//Llamar mi lista de tareas desde el JSON utilizando fetch
 
-console.log("primera tarea de la lista", primera_tarea);
+fetch("../assets/json/todos.json")
+    .then((response) => {
+        return response.json();
+    })
+    .then((data) => {
+        console.log(data);
+        saveToStorage(data, "todos");
+        drawData("todos");
+    })
+    .catch((error) => {
+        console.error("Error:", error);
+        showAlerts(error);
+    });
 
 
+try {
+    async function getData() {
+        const response = await fetch("../assets/json/todos.json");
+        const data = await response.json();
+        console.log(data);
+    }
+    getData();
 
-console.log(todoContainerTasks.children[0].closest('div'));
+} catch (error) {
+    console.error("Error:", error);    
+}
+
 
 //tipos de datos
 
